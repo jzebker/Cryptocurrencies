@@ -62,14 +62,14 @@ Create an analysis for your clients who are preparing to get into the cryptocurr
 ## Deliverable 3: Clustering Cryptocurrencies Using K-means
 • An elbow curve is created using hvPlot to find the best value for K
 
-`inertia = []`
+    inertia = []
 
-`k = list(range(1, 11))`
+    k = list(range(1, 11))
 
-`for i in k:
-    km = KMeans(n_clusters=i, random_state=0)   
-    km.fit(pcs_df)   
-    inertia.append(km.inertia_)`
+    for i in k:
+        km = KMeans(n_clusters=i, random_state=0)   
+        km.fit(pcs_df)
+        inertia.append(km.inertia_)
 
 `elbow_data = {"k": k, "inertia": inertia}
 df_elbow = pd.DataFrame(elbow_data)
