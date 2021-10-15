@@ -78,11 +78,8 @@ df_elbow.hvplot.line(x="k", y="inertia", title="Elbow Curve", xticks=k)`
 
 • Predictions are made on the K clusters of the cryptocurrencies’ data 
 
-`# Initialize the K-Means model.
-model = KMeans(n_clusters=4, random_state=0)
-
+`model = KMeans(n_clusters=4, random_state=0)
 model.fit(pcs_df)
-
 predictions = model.predict(pcs_df)`
 
 • A new DataFrame is created with the same index as the crypto_df DataFrame and has the following columns: Algorithm, ProofType, TotalCoinsMined, TotalCoinSupply, PC 1, PC 2, PC 3, CoinName, and Class
