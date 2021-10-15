@@ -1,6 +1,6 @@
 # Cryptocurrencies
 ## Overview
-Create an analysis for your clients who are preparing to get into the cryptocurrency market that includes what cryptocurrencies are on the trading market and how they could be grouped to create a classification system for this new investment.  For specific steps, see the title of the Deliverable sections below.
+Create an analysis for your clients who are preparing to get into the cryptocurrency market that includes what cryptocurrencies are on the trading market and how they could be grouped to create a classification system for this new investment.  For specific steps, see the titles of the Deliverable sections below.
 ## Deliverable 1: Preprocessing the Data for PCA
 • All cryptocurrencies that are not being traded are removed
 
