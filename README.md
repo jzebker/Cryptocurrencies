@@ -59,21 +59,21 @@ crypto_pca = pca.fit_transform(X)`
 • An elbow curve is created using hvPlot to find the best value for K
 
 `# Create an elbow curve to find the best value for K.
-# Create empty list and our range of K values
+
 inertia = []
 k = list(range(1, 11))
-# Looking for the best K
+
 for i in k:
     km = KMeans(n_clusters=i, random_state=0)
     km.fit(pcs_df)
     inertia.append(km.inertia_)
-# Define a DataFrame to plot the Elbow Curve using hvPlot
+
 elbow_data = {"k": k, "inertia": inertia}
 df_elbow = pd.DataFrame(elbow_data)
 df_elbow.hvplot.line(x="k", y="inertia", title="Elbow Curve", xticks=k)`
 
 <p align='center'>
-  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/CoinNameDF.png?raw=true'>
+  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/elbowcurve.png?raw=true'>
 </p>
 
 • Predictions are made on the K clusters of the cryptocurrencies’ data 
@@ -81,26 +81,43 @@ df_elbow.hvplot.line(x="k", y="inertia", title="Elbow Curve", xticks=k)`
 `# Initialize the K-Means model.
 model = KMeans(n_clusters=4, random_state=0)
 
-# Fit the model
 model.fit(pcs_df)
 
-# Predict clusters
 predictions = model.predict(pcs_df)`
 
 • A new DataFrame is created with the same index as the crypto_df DataFrame and has the following columns: Algorithm, ProofType, TotalCoinsMined, TotalCoinSupply, PC 1, PC 2, PC 3, CoinName, and Class
 
 <p align='center'>
-  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/CoinNameDF.png?raw=true'>
+  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/clustered_df.png?raw=true'>
 </p>
 
 ## Deliverable 4: Visualizing Cryptocurrencies Results
 • The clusters are plotted using a 3D scatter plot, and each data point shows the CoinName and Algorithm on hover
 
+<p align='center'>
+  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/3dscatter.png?raw=true'>
+</p>
+
 • A table with tradable cryptocurrencies is created using the hvplot.table() function
+
+<p align='center'>
+  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/tradabletable.png?raw=true'>
+</p>
 
 • The total number of tradable cryptocurrencies is printed
 
+<p align='center'>
+  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/totaltradable.png?raw=true'>
+</p>
+
 • A DataFrame is created that contains the clustered_df DataFrame index, the scaled data, and the CoinName and Class columns 
+
+<p align='center'>
+  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/newdfD4.png?raw=true'>
+</p>
 
 • A hvplot scatter plot is created where the X-axis is "TotalCoinsMined", the Y-axis is "TotalCoinSupply", the data is ordered by "Class", and it shows the CoinName when you hover over the data point
 
+<p align='center'>
+  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/scatterplot.png?raw=true'>
+</p>
