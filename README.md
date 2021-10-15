@@ -18,11 +18,18 @@ Create an analysis for your clients who are preparing to get into the cryptocurr
 `crypto_df = crypto_df.drop(['CoinName'],axis=1)`
 
 • A new DataFrame is created that stores all cryptocurrency names from the CoinName column and retains the index from the crypto_df DataFrame
+
 `crypto_names = crypto_df.drop(['Algorithm','ProofType','TotalCoinsMined','TotalCoinSupply'],axis=1)`
 
 <p align='center'>
   <img src=>
 </p>
+
+• The get_dummies() method is used to create variables for the text features, which are then stored in a new DataFrame, X
+`X = pd.get_dummies(crypto_df, columns = ["Algorithm","ProofType"])`
+
+• The features from the X DataFrame have been standardized using the StandardScaler fit_transform() function
+`X = StandardScaler().fit_transform(X)`
 
 ## Deliverable 2: Reducing Data Dimensions Using PCA
 ## Deliverable 3: Clustering Cryptocurrencies Using K-means
