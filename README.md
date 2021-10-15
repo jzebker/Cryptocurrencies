@@ -39,6 +39,22 @@ Create an analysis for your clients who are preparing to get into the cryptocurr
 `X = StandardScaler().fit_transform(X)`
 
 ## Deliverable 2: Reducing Data Dimensions Using PCA
+• The PCA algorithm reduces the dimensions of the X DataFrame down to three principal components
+
+`pca = PCA(n_components=3)
+crypto_pca = pca.fit_transform(X)`
+
+• The pcs_df DataFrame is created and has the following three columns, PC 1, PC 2, and PC 3, and has the index from the crypto_df DataFrame
+
+`pcs_df = pd.DataFrame(
+    data=crypto_pca,columns=["PC 1", "PC 2", "PC 3"],
+    index=crypto_df.index
+)`
+
+<p align='center'>
+  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/CoinNameDF.png?raw=true'>
+</p>
+
 ## Deliverable 3: Clustering Cryptocurrencies Using K-means
 ## Deliverable 4: Visualizing Cryptocurrencies Results
 ## Summary
