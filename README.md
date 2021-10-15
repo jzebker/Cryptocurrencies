@@ -42,13 +42,17 @@ Create an analysis for your clients who are preparing to get into the cryptocurr
 • The PCA algorithm reduces the dimensions of the X DataFrame down to three principal components
 
 `pca = PCA(n_components=3)`
+
 `crypto_pca = pca.fit_transform(X)`
 
 • The pcs_df DataFrame is created and has the following three columns, PC 1, PC 2, and PC 3, and has the index from the crypto_df DataFrame
 
 `pcs_df = pd.DataFrame(`
+
     `data=crypto_pca,columns=["PC 1", "PC 2", "PC 3"],`
+    
     `index=crypto_df.index`
+    
 `)`
 
 <p align='center'>
@@ -59,15 +63,23 @@ Create an analysis for your clients who are preparing to get into the cryptocurr
 • An elbow curve is created using hvPlot to find the best value for K
 
 `inertia = []`
+
 `k = list(range(1, 11))`
 
+
 `for i in k:`
+
     `km = KMeans(n_clusters=i, random_state=0)`
+    
     `km.fit(pcs_df)`
+    
     `inertia.append(km.inertia_)`
 
+
 `elbow_data = {"k": k, "inertia": inertia}`
+
 `df_elbow = pd.DataFrame(elbow_data)`
+
 `df_elbow.hvplot.line(x="k", y="inertia", title="Elbow Curve", xticks=k)`
 
 <p align='center'>
@@ -77,7 +89,9 @@ Create an analysis for your clients who are preparing to get into the cryptocurr
 • Predictions are made on the K clusters of the cryptocurrencies’ data 
 
 `model = KMeans(n_clusters=4, random_state=0)`
+
 `model.fit(pcs_df)`
+
 `predictions = model.predict(pcs_df)`
 
 • A new DataFrame is created with the same index as the crypto_df DataFrame and has the following columns: Algorithm, ProofType, TotalCoinsMined, TotalCoinSupply, PC 1, PC 2, PC 3, CoinName, and Class
