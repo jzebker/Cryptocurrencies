@@ -66,21 +66,14 @@ Create an analysis for your clients who are preparing to get into the cryptocurr
 
 `k = list(range(1, 11))`
 
+`for i in k:
+    km = KMeans(n_clusters=i, random_state=0)   
+    km.fit(pcs_df)   
+    inertia.append(km.inertia_)`
 
-`for i in k:`
-
-    `km = KMeans(n_clusters=i, random_state=0)`
-    
-    `km.fit(pcs_df)`
-    
-    `inertia.append(km.inertia_)`
-
-
-`elbow_data = {"k": k, "inertia": inertia}`
-
-`df_elbow = pd.DataFrame(elbow_data)`
-
-`df_elbow.hvplot.line(x="k", y="inertia", title="Elbow Curve", xticks=k)`
+`elbow_data = {"k": k, "inertia": inertia}
+df_elbow = pd.DataFrame(elbow_data)
+df_elbow.hvplot.line(x="k", y="inertia", title="Elbow Curve", xticks=k)`
 
 <p align='center'>
   <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/elbowcurve.png?raw=true'>
