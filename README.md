@@ -52,15 +52,13 @@ crypto_pca = pca.fit_transform(X)`
 )`
 
 <p align='center'>
-  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/CoinNameDF.png?raw=true'>
+  <img src='https://github.com/jzebker/Cryptocurrencies/blob/main/img/pcs_df.png?raw=true'>
 </p>
 
 ## Deliverable 3: Clustering Cryptocurrencies Using K-means
 • An elbow curve is created using hvPlot to find the best value for K
 
-`# Create an elbow curve to find the best value for K.
-
-inertia = []
+`inertia = []
 k = list(range(1, 11))
 
 for i in k:
@@ -79,7 +77,9 @@ df_elbow.hvplot.line(x="k", y="inertia", title="Elbow Curve", xticks=k)`
 • Predictions are made on the K clusters of the cryptocurrencies’ data 
 
 `model = KMeans(n_clusters=4, random_state=0)
+
 model.fit(pcs_df)
+
 predictions = model.predict(pcs_df)`
 
 • A new DataFrame is created with the same index as the crypto_df DataFrame and has the following columns: Algorithm, ProofType, TotalCoinsMined, TotalCoinSupply, PC 1, PC 2, PC 3, CoinName, and Class
